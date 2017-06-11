@@ -4,7 +4,6 @@
 #include <sstream>
 #include <cstdlib>
 #include <conio.h>
-//#include <ctime>
 #include "Waktu.h"
 using namespace std;
 
@@ -15,6 +14,7 @@ class CatatanHarian{
 		string detail;
 		string status;
 		string tanggal;
+		Waktu w;
 		
 		void replaceString(string& str, const string& from, const string& to) {
 		    if(from.empty())
@@ -196,7 +196,6 @@ class CatatanHarian{
 		
 		void menuCatatan()
 		{
-			Waktu w;
 			cout<<"=========================="<<endl;
 			cout<<"--------"<<w.getAll()<<"-------"<<endl;
 			cout<<"1. tambah"<<endl;
@@ -205,46 +204,6 @@ class CatatanHarian{
 			cout<<"4. tampil sesuai status"<<endl;
 			cout<<"=========================="<<endl;
 			cout<<"Pilih menu =";
-		}
-		
-		string toString(int number)
-		{
-			ostringstream os;
-			os<<number;
-			return os.str();
-		}
-		
-		string waktuCatatan()
-		{
-			string res = "";
-			const char* MONTHS[] =
-			{
-				"January", "February", "March", "April", "May", "June",
-				"July", "August", "September", "October", "November", "December"
-			};
-			
-			const char* day[] =
-			{			
-				"minggu",
-				"senin",
-				"selasa",
-				"rabu",
-				"kamis",
-				"jumat",
-				"sabtu"
-			};
-			
-			time_t rawtime;
-			tm* timeinfo;
-			time( &rawtime );
-			timeinfo = localtime( &rawtime );
-			res +=toString(timeinfo->tm_mday);
-			res += "-";
-			res += MONTHS[timeinfo->tm_mon];
-			res +="-";
-			res +=toString(timeinfo->tm_year + 1900);
-			//return (timeinfo->tm_mday ."/" .MONTHS[timeinfo->tm_mon] ."/" . (timeinfo->tm_year + 1900) ."  " .timeinfo->tm_hour + ":" . timeinfo->tm_min);
-			return res;
 		}
 		
 		~CatatanHarian()
@@ -262,7 +221,7 @@ class CatatanHarian{
 			prioritas = 0;
 			detail ="";
 			status ="";
-			tanggal = waktuCatatan();
+			tanggal = w.getAll();
 		}
 };
 
@@ -270,7 +229,6 @@ int main()
 {
 	system("color f0");
 	CatatanHarian c;
-	cout<<c.waktuCatatan();
 	char lagi;
 	do
 	{
