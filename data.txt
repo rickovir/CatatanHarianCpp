@@ -7,3 +7,5 @@
 666  1  test   selesai
 5  2  belajar#masak   belum
 90  1  buka#bersama#..#.#.#.#.#.   belum
+1  1  makan   belum
+2  2  minum   belum

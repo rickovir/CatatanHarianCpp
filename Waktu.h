@@ -8,7 +8,7 @@
 using namespace std;
 class Waktu{
 	private :
-//	const char* MONTHS[] =
+//	const char* MONTHS[12] =
 //	{
 //		"January", "February", "March", "April", "May", "June",
 //		"July", "August", "September", "October", "November", "December"
@@ -107,6 +107,7 @@ class Waktu{
 		string getBulan()
 		{
 			return bulan(timeinfo->tm_mon);
+//			return MONTHS[timeinfo->tm_mon];
 		}
 		string getTahun()
 		{
